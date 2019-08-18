@@ -1,0 +1,25 @@
+#main
+{
+	width: 75%;
+	height: 500px;
+	margin: auto;
+	background: white;
+	border: 1px solid black;
+}
+#perso
+{
+	height: 200px;
+	width: auto;
+	-webkit-transform: scale(5);
+	background: url("img/base.png") center no-repeat;
+}
+
+/*  ZOOM CSS
+
+.zoom div img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+} 
+*/
