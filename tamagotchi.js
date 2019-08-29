@@ -102,7 +102,7 @@ class Bestiole {
 	}
 	reincarnation() {
 
-		if (this.fantom = true && "rebbot" ) {
+		if (this.fantom = true && "reboot" ) {
 
 			// effacer tous parametres et >>> birth() mais garder compte
 
