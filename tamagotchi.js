@@ -1,10 +1,12 @@
 // TAMAGOTCHI
 
-const style = [];
+const style = ["egg", "child", "adult", "old", "fantom"];
+const styleHealth = ["happy", "fine", "sad", "depressed", "sick", "dead"];
+const styleAsk = ["hungry", "bored", "angry", "asleep"];
 
 // images evolution, sick, happy, sad, bored, fantom etc
 
-class Bestiole {
+class Pet {
 
 	constructor() {
 
@@ -23,7 +25,7 @@ class Bestiole {
 
 	}
 
-	sante() {
+	health() {
 
 		if (this.sante === 0 ) {
 
@@ -40,11 +42,6 @@ class Bestiole {
 
 			this.counter(setInterval, ) // compteur pour enlever points de sante
 		}
-	}
-		bored() {
-
-		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score borded et au final happyness
-
 	}
 
 	happyness() {
@@ -77,6 +74,11 @@ class Bestiole {
 
 			// very cool :)
 		}
+	}
+	bored() {
+
+		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score borded et au final happyness
+
 	}
 
 	time() {
@@ -112,9 +114,9 @@ class Bestiole {
 
 }
 
-const bestiole = new Bestiole();
+const pet = new Pet();
 
-bestiole.birth();
+pet.birth();
 
 // construction d'une API pour creer un tamagotchi de base pour tests, puis envoyer des push selon new tamagotchi et comptes créés 
 
