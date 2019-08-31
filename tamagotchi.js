@@ -1,5 +1,6 @@
 // TAMAGOTCHI
 
+
 // images evolution, sick, happy, sad, bored, fantom etc
 const style = ["egg", "child", "adult", "old", "fantom"];
 const styleHealth = ["happy", "fine", "sad", "depressed", "sick", "dead"];
@@ -10,6 +11,8 @@ class Pet {
 	constructor() {
 
 		this.style; 
+		this.styleHealth;
+		this.styleAsk;
 		this.birth = false;
 		this.health = 100; 
 		this.asleep = false;
@@ -17,14 +20,13 @@ class Pet {
 		this.happyness = 100; 
 		this.bored = 0;
 		this.sickness = 0;
-		this.time = time;
+		this.time;
 		this.evolution = evolution;
 		this.fantom = false;
-		this.reincarnation = false;
+		this.reincarnation = false; // ??? imaginer système de points à chaques reincarnations ?
 		this.counter; 
 
 	}
-
 	health() {
 
 		if (this.health === 0 ) {
@@ -33,23 +35,50 @@ class Pet {
 
 			if (this.fantom === true) {
 
-				//donner au user la possiblité de reset
-
 				this.reincarnation = true;
 
-			}
+				// donner au user la possiblité de reset, 
+				// d'attribuer des pts de réincarnation... (faut pas que ça parte trop loin...)
+				// sinon, delete
+			}	
 
 		}
 	}
-
 	hungry() {
 
-		if (this.hungry === 0) {
+		if (this.hungry <= 75 ) {
 
-			this.counter(setInterval, ) // compteur pour enlever points de sante
+			this.counter = setInterval( () => {this.time()},1728); // compteur pour enlever points de santé
+
 		}
-	}
+		if (this.hungry <= 50 ) {
 
+			this.counter = 0;
+
+			this.counter = setInterval( () => {this.time()},3456); // compteur pour enlever points de santé x 2
+
+		}
+		if (this.hungry <= 25 ) {
+
+			this.counter = 0;
+
+			this.counter = setInterval( () => {this.time()},4320) // compteur pour enlever pts de santé x 2.5
+		}
+		if (this.hungry <= 10 ) {
+
+			this.counter = 0;
+
+			this.counter = setInterval( () => {this.time()},8640) // compteur pour enlever pts de santé x 5
+			// this.styleAsk = "asleep" + bruit d'alerte ?
+
+		}
+		if (this.hungry === 0 ) {
+
+			this.health();
+
+		}
+
+	}
 	happyness() {
 
 		if (this.happyness === 0 ) {
@@ -98,15 +127,13 @@ class Pet {
 		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score borded et au final happyness
 
 	}
-
 	time() {
 
-		//timer fantom
+		this.health--;
 
-		// possibilité "immortalité" si on s'en occupe bien ?
+		this.health();
 
 	}
-	
 	birth() {
 
 		// initialisation
