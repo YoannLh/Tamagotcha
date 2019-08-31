@@ -1,10 +1,9 @@
 // TAMAGOTCHI
 
+// images evolution, sick, happy, sad, bored, fantom etc
 const style = ["egg", "child", "adult", "old", "fantom"];
 const styleHealth = ["happy", "fine", "sad", "depressed", "sick", "dead"];
 const styleAsk = ["hungry", "bored", "angry", "asleep"];
-
-// images evolution, sick, happy, sad, bored, fantom etc
 
 class Pet {
 
@@ -12,26 +11,33 @@ class Pet {
 
 		this.style; 
 		this.birth = false;
-		this.sante = 100; 
-		this.hungry = 100; // raisonner par tranches de 25, par repas quoi
+		this.health = 100; 
+		this.asleep = false;
+		this.hungry = 100; // raisonner par tranches de 25, par repas (matin, midi, 4h, diner)
 		this.happyness = 100; 
-		this.bored;
-		this.sickness;
+		this.bored = 0;
+		this.sickness = 0;
 		this.time = time;
 		this.evolution = evolution;
 		this.fantom = false;
-		this.counter; // ???
 		this.reincarnation = false;
+		this.counter; 
 
 	}
 
 	health() {
 
-		if (this.sante === 0 ) {
+		if (this.health === 0 ) {
 
 			this.fantom = true;
 
-			this.reincarnation = true;
+			if (this.fantom === true) {
+
+				//donner au user la possiblité de reset
+
+				this.reincarnation = true;
+
+			}
 
 		}
 	}
@@ -75,6 +81,18 @@ class Pet {
 			// very cool :)
 		}
 	}
+	asleep() {
+
+		// selon l'heure (paramétrée par le user selon ses habitudes ?), le pet veut dormir (base de 8h ?)
+
+		if (!asleep) {
+
+			// this.hungry --
+			// this.happy === fine
+			//this.bored -= 10
+		}
+
+	}
 	bored() {
 
 		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score borded et au final happyness
@@ -104,9 +122,9 @@ class Pet {
 	}
 	reincarnation() {
 
-		if (this.fantom = true && "reboot" ) {
+		if (this.fantom = true && /*"reboot"*/ ) {
 
-			// effacer tous parametres et >>> birth() mais garder compte
+			// effacer tous parametres et >>> birth() mais garder compte user et score ?
 
 		}
 
