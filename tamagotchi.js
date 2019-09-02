@@ -10,10 +10,11 @@ class Pet {
 	constructor() {
 
 		this.screen = document.getElementById("perso");
+		this.state = document.getElementById("state");
 		this.style; 
 		this.styleHealth;
 		this.styleAsk;
-		this.birth = false;
+		this.birth;
 		this.health = 100; 
 		this.asleep = false;
 		this.hungry = 100; // raisonner par tranches de 25, par repas (matin, midi, 4h, diner)
@@ -23,9 +24,18 @@ class Pet {
 		this.time;
 		this.evolution;
 		this.reincarnation = false; // ??? imaginer système de points à chaques reincarnations ?
-		this.counter; 
+		this.counter;
+		this.counterHungry = 0;
+		this.counterInitialisation = 0;		
+		this.counterTime = 0;
+		this.interval;
+
 	}
 	healthPet() {
+
+		this.health--;
+
+		console.log(this.health);
 
 		if (this.health === 0 ) {
 
@@ -42,34 +52,43 @@ class Pet {
 	}
 	hungryPet() {
 
+		console.log(this.hungry);
+
+		this.hungry--;
+
+		this.state.innerHTML = styleAsk[0];
+
 		if (this.hungry <= 75) {
 
-			this.counter = setInterval( () => {this.time()},1728); // compteur pour enlever points de santé
+			this.counterHungry = setInterval( () => {this.timePet()},1728); // compteur pour enlever points de santé
 
-			this.screen.innerHTML = styleAsk[0];
+			this.state.innerHTML = styleAsk[0];
+
+			console.log("faim");
 
 		} else if (this.hungry <= 50) {
 
-			this.counter = 0;
+			clearInterval(this.counterHungry);
 
-			this.counter = setInterval( () => {this.time()},3456); // compteur pour enlever points de santé x 2
+			this.counterHungry = setInterval( () => {this.timePet()},3456); // compteur pour enlever points de santé x 2
 
 		} else if (this.hungry <= 25) {
 
-			this.counter = 0;
+			clearInterval(this.counterHungry);
 
-			this.counter = setInterval( () => {this.time()},4320); // compteur pour enlever pts de santé x 2.5
+			this.counterHungry = setInterval( () => {this.timePet()},4320); // compteur pour enlever pts de santé x 2.5
+			
 		} else if (this.hungry <= 10) {
 
-			this.counter = 0;
+			clearInterval(this.counterHungry);
 
-			this.counter = setInterval( () => {this.time()},8640); // compteur pour enlever pts de santé x 5
+			this.counterHungry = setInterval( () => {this.timePet()},8640); // compteur pour enlever pts de santé x 5
 
 			// this.styleAsk = "asleep" + bruit d'alerte ?
 
 		} else if (this.hungry === 0) {
 
-			this.health();
+			this.healthPet();
 		}
 	}
 	happyness() {
@@ -77,7 +96,7 @@ class Pet {
 		if (this.happyness === 0 ) {
 
 			// depression totale
-			this.screen.innerHTML = styleHealth[4];
+			this.state.innerHTML = styleHealth[4];
 
 			this.counter = setInterval( () => {this.timeHappyness()},900);
 
@@ -86,25 +105,25 @@ class Pet {
 		if (this.happyness < 25 ) {
 
 			//deprimé
-			this.screen.innerHTML = styleHealth[3];
+			this.state.innerHTML = styleHealth[3];
 		}
 
 		if (this.happyness < 50 ) {
 
 			// mouais bof
-			this.screen.innerHTML = styleHealth[2];
+			this.state.innerHTML = styleHealth[2];
 		}
 
 		if (this.happuness < 75) {
 
 			// cool
-			this.screen.innerHTML = styleHealth[1];
+			this.state.innerHTML = styleHealth[1];
 		}
 
 		if (this.happyness <= 100 ) {
 
 			// very cool :)
-			this.screen.innerHTML = styleHealth[0];
+			this.state.innerHTML = styleHealth[0];
 		}
 	}
 	asleepPet() {
@@ -124,21 +143,29 @@ class Pet {
 	}
 	initialisationChild() {
 
-		this.birth = true;
+		console.log("3");
+
+		this.screen.innerHTML = style[1];
+
+		clearInterval(this.counterInitialisation);
+
+		console.log("3.5");
 
 		this.timePet();
 	}
+	/*
 	timeBirth() {
 
 		console.log("2");
 
 			this.counter = setInterval( () => {this.initialisationChild()},100);	
 	}
+	*/
 	timePet() {
 
-		this.health--;
+		console.log("4");
 
-		this.healthPet();
+		this.counterTime = setInterval( () => {this.hungryPet()},1000);
 	}
 	timeHungry() {
 
@@ -156,13 +183,26 @@ class Pet {
 
 		//initialisation
 
-		this.screen.innerHTML = style[0];
-
-		this.counter = setInterval( () => {this.initialisationChild()},100);
+		this.birth = false;
 
 		if (this.birth === false) {
 
-			this.timeBirth();
+			console.log("2");
+
+			this.screen.innerHTML = style[0];
+
+			// délai avant sortie de l'oeuf
+			this.counterInitialisation = setInterval( () => {this.initialisationChild()},10000);
+
+			console.log("2.5");
+
+			//this.timeBirth();
+		} else {
+
+			clearInterval(this.counterInitialisation);
+
+			console.log("2.7");
+
 		}
 	}
 	reincarnation() {
