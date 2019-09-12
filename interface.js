@@ -6,6 +6,8 @@ class Interface {
 
 	constructor() {
 
+		this.interface = document.getElementById("interface");
+		this.interface2 = document.getElementById("interface2");
 		this.buttonFeed = document.getElementById("nourrir");
 		this.buttonPlay = document.getElementById("jouer");
 		this.buttonCure = document.getElementById("soigner");
@@ -13,6 +15,7 @@ class Interface {
 		this.buttonDormir = document.getElementById("dormir");
 		this.buttonClean = document.getElementById("clean");
 		this.state = document.getElementById("state");
+		this.birth;
 		this.hungry;
 	}
 	feed() {
@@ -80,7 +83,10 @@ interface.dormir();
 
 interface.reset();
 
-// construction d'une API pour creer un tamagotchi de base pour tests, puis envoyer des push selon new tamagotchi et comptes créés 
+//interface.checkBeforeBirth();
+
+// construction d'une API pour creer un tamagotchi de base pour tests, 
+// puis envoyer des push selon new tamagotchi et comptes créés 
 
 
 
