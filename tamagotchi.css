@@ -1,21 +1,42 @@
 
-/*
+#body 
+{
+	margin: 0;
+	padding: 0;
+}
 #main
 {
-	width: 75%;
-	height: 500px;
+	
+	width: 100%;
+	height: auto;
+	font-size: 2.5em;
+	color: white;
 	margin: auto;
-	background: white;
-	border: 1px solid black;
+	background: rgba(0,100,255,0.5);
+	border-radius: 10px;
 }
 #perso
 {
 	height: 200px;
 	width: auto;
-	-webkit-transform: scale(5);
-	background: url("img/base.png") center no-repeat;
+	margin: auto;
+	padding: 150px;
+	-webkit-transform: scale(3);
+	background: center;
 }
-
+#statePerso {
+	display: flex;
+	position: absolute;
+	top: 15px;
+	left: 12%;
+	width: 75%;
+	margin: auto;
+}
+#state {
+	width: 500px;
+	margin: auto;
+	text-align: center;
+}
 /*  ZOOM CSS
 
 .zoom div img {
@@ -25,12 +46,85 @@
 	transition: .3s ease-in-out;
 } 
 */
+#interface {
+	position: absolute;
+	top: 0;
+	left: 2%;
+	width: auto;
+	height: 500px;
+	justify-content: space-between;
+}
+#interface2 {
+	position: absolute;
+	top: 0;
+	right: 2%;
+	width: auto;
+	height: 500px;
+	justify-content: space-between;
+}
 #nourrir {
+	
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
 	
 }
 #soigner {
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
 
 }
 #jouer {
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
+}
+#dormir {
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
+}
+#clean {
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
+}
+#block {
+
+	margin-top: 60px;
+	text-align: center;
+	text-decoration: line-through;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
 
 }
+#reset {
+
+	display: none;
+	margin-top: 60px;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 6px;
+	width: 150px;
+	margin: auto;
+}
+
+
+
+
+
+
+
+
