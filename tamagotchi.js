@@ -3,7 +3,7 @@
 
 // images evolution, sick, happy, sad, bored, fantom etc
 
-const style = ["url('img/egg.png')", "url('img/birth.gif')", "url('img/child.gif')", "adult", "old", "url('img/fantom.gif')"];
+const style = ["url('img/egg.png')", "url('img/birth.gif')", "url('img/child.gif')", "adult", "old", "url('img/fantom.gif')", "url('img/eclosion/gif')"];
 
 const styleHealth = ["url('img/miam2.gif')", "url('img/happy.png')", "fine", "url('img/hungry.gif')", "sad", "url('img/depressed2.gif')", 
 
@@ -213,11 +213,9 @@ class Pet {
 			this.happy = 100;
 		}
 	}
-
 	/*
 	boredPet() {
 
-		
 		this.screen.style.backgroundImage = styleAsk[5];
 
 		clearInterval(this.counterBored);
@@ -225,7 +223,6 @@ class Pet {
 		//this.playPet();
 
 		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score bored et au final happyness
-	
 	}
 	*/
 	asleepPet() {
@@ -256,6 +253,16 @@ class Pet {
 			pet.timePet();
 		}
 	}
+
+
+
+	eclosion() {
+
+		this.screen.style.background. = style[6];
+	}
+
+
+
 	initialisationChild() {
 
 		this.interface.style.display = "block";
@@ -288,18 +295,15 @@ class Pet {
 	birthPet() {
 
 		//initialisation
-		
 		console.log("init");
 			console.log("2");
 			this.screen.style.backgroundRepeat = "no-repeat";
 			this.screen.style.backgroundImage = style[1];
 			// délai avant sortie de l'oeuf
-			this.counterInitialisation = setInterval( () => {this.initialisationChild()},10000);
+			this.counterInitialisation = setInterval( () => {this.initialisationChild()},100000);
 			console.log("2.5");
 			this.interface.style.display = "none";
-			this.interface2.style.display = "none";
-		
-		
+			this.interface2.style.display = "none";	
 	}
 }
 
