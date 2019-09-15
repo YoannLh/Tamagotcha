@@ -4,12 +4,14 @@ class Memory {
 
 	constructor() {
 
+
 	}
 	init() {
 
 		// le plateau et les cartes sont crées, 
 
 		// récupération des éléments et intialisation du jeu, de la logique du jeu
+
 	}
 	createCards() {
 
@@ -44,6 +46,7 @@ class Memory {
 		// si le match est bon
 
 		// memory.findTwin();
+
 	}
 	findTwin() {
 
@@ -52,12 +55,14 @@ class Memory {
 	numberOfFindedTwin() {
 
 		// comptabliliser les couples trouvés, si moitié dépassée >>>
+
 	}
 	totalFail() {
 
 		// plus de la moitié des couples ont fail
 
 		// "vous avez perdu";
+
 	}
 	totalWin() {
 

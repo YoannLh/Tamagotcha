@@ -3,15 +3,11 @@
 
 // images evolution, sick, happy, sad, bored, fantom etc
 
-const style = ["url('img/egg.png')", "url('img/birth.gif')", "url('img/child.gif')", "adult", "old", 
+const style = ["url('img/egg.png')", "url('img/birth.gif')", "url('img/child.gif')", "adult", "old", "url('img/fantom.gif')", "url('img/eclosion/gif')"];
 
-			   "url('img/fantom.gif')", "url('img/eclosion.gif')"];
+const styleHealth = ["url('img/miam2.gif')", "url('img/happy.png')", "fine", "url('img/hungry.gif')", "sad", "url('img/depressed2.gif')", 
 
-const styleHealth = ["url('img/miam2.gif')", "url('img/happy.png')", "fine", "url('img/hungry.gif')", "sad", 
-
-					 "url('img/depressed2.gif')", "url('img/sick.gif')", "dead" 
-
-					,"url('img/sleeping.gif')", "url('img/angry.png')", "url('img/caca.gif')"];
+					 "url('img/sick.gif')", "dead" ,"url('img/sleeping.gif')", "url('img/angry.png')", "url('img/caca.gif')"];
 
 const styleAsk = ["hungry", "bored", "angry", "sick", "url('img/baillement.gif')"];
 
@@ -20,7 +16,6 @@ const styleRandomFace = ["url('img/buterfly.gif')", "url('img/questionning.gif",
 					     "url('img/child.gif')", "url('img/whistling.gif')", "url('img/justLooking.gif')"];
 
 const stylePlaying = ["url('img/soleil.gif')"];
-
 
 class Pet {
 
@@ -57,9 +52,28 @@ class Pet {
 		this.interface = document.getElementById("interface");
 		this.interface2 = document.getElementById("interface2");
 		this.buttonReset = document.getElementById("reset");
-		this.eclosionTime = 0;
 		
 	}
+	/*
+	clearAllInterval() {
+
+		clearInterval(this.counterTime); 
+		clearInterval(this.counterHappyness); 
+		clearInterval(this.counterRandomFace); 
+		clearInterval(this.counterAsleep); 
+		clearInterval(this.counterBored); 
+		clearInterval(this.counterPoo);
+	
+	}
+	*/
+	/*
+	killState() {
+
+		if (this.state != "") { 
+		this.state.innerHTML = "";
+		}
+	}
+	*/
 	randomFace() {
 
 		//this.state.innerHTML = "";
@@ -94,6 +108,7 @@ class Pet {
 	sickPet() {
 
 		this.screen.style.backgroundImage = styleHealth[6];
+
 	}
 	healthPet() {
 
@@ -120,6 +135,7 @@ class Pet {
 		if (this.health > 100) {
 			this.health = 100;
 		}
+
 	}
 	hungryPet() {
 
@@ -169,7 +185,7 @@ class Pet {
 		//this.screen.style.backgroundImage = styleHealth[?]; ... créer un gif nettoyage
 		this.state.innerHTML = "cleaning";
 		clearInterval(this.counterRandomFace);
-		this.counterRandomFace = setInterval( () => {this.randomFace()}, 3000);
+		this.counterRandomFace = setInterval( () => {this.randomFace()}, 5000);
 		// this.counterTime = setInterval( () => {this.hungryPet()},20000);
 		// pet.killState();
 	}
@@ -184,7 +200,6 @@ class Pet {
 			this.screen.style.backgroundImage = styleHealth[5];
 		}
 		if (this.happy === 0 ) {
-			this.happy = 0;
 			this.state.innerHTML = styleHealth[0];
 		}
 	}
@@ -207,8 +222,7 @@ class Pet {
 
 		//this.playPet();
 
-		// happyness depend aussi de bored() donc 
-		// un systeme de jeu pour gonfler score bored et au final happyness
+		// happyness depend aussi de bored() donc un systeme de jeu pour gonfler score bored et au final happyness
 	}
 	*/
 	asleepPet() {
@@ -239,25 +253,24 @@ class Pet {
 			pet.timePet();
 		}
 	}
+
+
+
 	eclosion() {
 
-		//this.screen.style.backgroundImage = "no-repeat";
-		clearInterval(this.eclosionTime);
-		this.counterInitialisation = setInterval( () => {this.initialisationChild()},8000);
-		this.screen.style.backgroundImage = style[6];
-		this.screen.style.backgroundRepeat = "no-repeat";
-		console.log("eclosion");
+		this.screen.style.background. = style[6];
 	}
+
+
+
 	initialisationChild() {
 
-		//this.screen.style.backgroundImage = "no-repeat";
-		clearInterval(this.counterInitialisation);
 		this.interface.style.display = "block";
 		this.interface2.style.display = "block";
 		console.log("3");
 		this.screen.style.transform = "scale(3)";
-		this.screen.style.backgroundImage = "img/birth.gif";
-		this.screen.style.backgroundRepeat = "no-repeat";
+		this.screen.style.background = "img/birth.gif";
+		clearInterval(this.counterInitialisation);
 		console.log("3.5");
 		this.timePet();
 	}
@@ -267,7 +280,6 @@ class Pet {
 		console.log("clearInitialisation");
 		this.screen.style.transform = "scale(3)";
 		this.screen.style.backgroundImage = style[2];
-		this.screen.style.backgroundRepeat = "no-repeat";
 		console.log("4");
 		this.counterTime = setInterval( () => {this.hungryPet()},20000); // 24H = 864 000 000ms
 		this.counterHappyness = setInterval( () => {this.happyness()},10000);
@@ -284,14 +296,14 @@ class Pet {
 
 		//initialisation
 		console.log("init");
-		console.log("2");
-		this.screen.style.backgroundRepeat = "no-repeat";
-		this.screen.style.backgroundImage = style[1];
-		// délai avant sortie de l'oeuf
-		this.interface.style.display = "none";
-		this.interface2.style.display = "none";
-		this.eclosionTime = setInterval( () => {this.eclosion()},10000);
-		console.log("2.5");	
+			console.log("2");
+			this.screen.style.backgroundRepeat = "no-repeat";
+			this.screen.style.backgroundImage = style[1];
+			// délai avant sortie de l'oeuf
+			this.counterInitialisation = setInterval( () => {this.initialisationChild()},1000);
+			console.log("2.5");
+			this.interface.style.display = "none";
+			this.interface2.style.display = "none";	
 	}
 }
 

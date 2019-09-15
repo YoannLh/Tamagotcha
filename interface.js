@@ -19,6 +19,7 @@ class Interface {
 		this.hungry;
 	}
 	feed() {
+		
 		this.buttonFeed = document.getElementById("nourrir")
 		this.buttonFeed.addEventListener("click", () => {
 			console.log("nourrir");
