@@ -1,0 +1,29 @@
+
+
+#board
+{
+	display: flex;
+	width: 99%;
+	margin: auto;
+	min-height: 550px;
+	border: red solid 1px;
+	flex-wrap: wrap;
+}
+
+/*
+#card
+{
+	width: 222px;
+	margin: auto;
+	height: 222px;
+	border: green solid 3px;
+}
+.back
+{
+	width: 222px;
+	margin: auto;
+	height: 222px;
+	background: blue;
+
+}
+*/

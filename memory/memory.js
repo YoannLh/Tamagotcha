@@ -1,21 +1,71 @@
 // memory
 
+const cards = [];
+
+const fronts = [];
+
 class Memory {
 
 	constructor() {
 
+		// this.card = ???
 
+		this.idCard;
+
+		this.board; 
 	}
 	init() {
 
 		// le plateau et les cartes sont crées, 
-
 		// récupération des éléments et intialisation du jeu, de la logique du jeu
 
-	}
-	createCards() {
+		for (let i = 1; i <= board.difficulty; i++) {
 
-		// recuperation des cartes crées
+			//console.log(board.difficulty);
+
+			const card = new Card(i);
+
+			console.log(i);
+
+			card.init();
+
+			card.click();
+
+			//console.log(card);
+
+			cards.push(card);
+
+			console.log("tableau = " + cards.length);
+		}
+
+		/*
+
+		front() {
+
+			this.front.style.backgroundImage = fronts[this.idCardArray];
+		}
+		constructCouples() {
+
+			// pour la difficulté 10, il y aura 5 fronts
+			// pour la difficulté 20, il y aura 10 fronts
+			// pour la difficulté 30, il y aura 15 fronts
+		}
+
+		*/
+
+	}
+	distributePositionsCardsRandom() {
+
+		board.positions();
+
+		for (const card of cards) {
+
+			board.difficulty.style.backgroundImage = styleRandomFace[Math.floor(Math.random() * Math.floor(10))];
+
+		}
+
+		
+
 	}
 	showMeCards() {
 
@@ -25,9 +75,20 @@ class Memory {
 
 		// Chaque tour équivault à 2 cartes dévoilées
 	}
+
+	
+
 	firstClick() {
 
-		// A chaque tour : une premiere carte est dévoilée  >>>
+		// A chaque tour : une premiere carte est dévoilée  
+
+		// juste check au click du num de la carte :
+
+				
+	}
+	rotate() {
+
+		//rotation de la carte clickée
 	}
 	secondClick() {
 
@@ -46,7 +107,6 @@ class Memory {
 		// si le match est bon
 
 		// memory.findTwin();
-
 	}
 	findTwin() {
 
@@ -55,14 +115,12 @@ class Memory {
 	numberOfFindedTwin() {
 
 		// comptabliliser les couples trouvés, si moitié dépassée >>>
-
 	}
 	totalFail() {
 
 		// plus de la moitié des couples ont fail
 
 		// "vous avez perdu";
-
 	}
 	totalWin() {
 
@@ -72,17 +130,25 @@ class Memory {
 
 		// "YOU WON !";
 	}
+	test() {
 
+		console.log("TEST :)");
+	}
 }
-
 
 const memory = new Memory();
 
 memory.init();
 
-board.init();
 
-card.init();
+
+memory.test();
+
+
+
+
+
+
 
 
 
