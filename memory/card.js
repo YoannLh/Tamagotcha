@@ -36,7 +36,6 @@ class Card {
 	click() {
 
 		this.newCard.addEventListener("click", () => {
-			console.log("click");
 			console.log("carte" + " " + this.idCard);
 		})
 	}

@@ -8,11 +8,8 @@ class Memory {
 
 	constructor() {
 
-		// this.card = ???
-
 		this.idCard;
-
-		this.board; 
+		this.board; 	
 	}
 	init() {
 
@@ -23,49 +20,53 @@ class Memory {
 
 			//console.log(board.difficulty);
 
+			memory.distributePositionsCardsRandom(i);
+
+
 			const card = new Card(i);
 
 			console.log(i);
 
 			card.init();
 
+			
+
 			card.click();
 
-			//console.log(card);
+			console.log(card);
 
 			cards.push(card);
 
 			console.log("tableau = " + cards.length);
+
 		}
+	}
+	constructCouples() {
+
+		// pour la difficulté 10, il y aura 5 fronts
+		// pour la difficulté 20, il y aura 10 fronts
+		// pour la difficulté 30, il y aura 15 fronts
+	}
+	distributePositionsCardsRandom(i) {
 
 		/*
 
-		front() {
+		A écrire :
 
-			this.front.style.backgroundImage = fronts[this.idCardArray];
-		}
-		constructCouples() {
+		une boucle dans laquelle i ne sera jamais sa et ses dernieres valeurs (switch ?) :
 
-			// pour la difficulté 10, il y aura 5 fronts
-			// pour la difficulté 20, il y aura 10 fronts
-			// pour la difficulté 30, il y aura 15 fronts
+
+
+		while (i < board.difficulty) {
+
+			i = Math.floor(Math.random() * Math.floor(board.difficulty));	
+
+			board.difficulty--;
+
+			console.log(i);
 		}
 
 		*/
-
-	}
-	distributePositionsCardsRandom() {
-
-		board.positions();
-
-		for (const card of cards) {
-
-			board.difficulty.style.backgroundImage = styleRandomFace[Math.floor(Math.random() * Math.floor(10))];
-
-		}
-
-		
-
 	}
 	showMeCards() {
 
@@ -75,16 +76,12 @@ class Memory {
 
 		// Chaque tour équivault à 2 cartes dévoilées
 	}
-
-	
-
 	firstClick() {
 
 		// A chaque tour : une premiere carte est dévoilée  
 
 		// juste check au click du num de la carte :
-
-				
+			
 	}
 	rotate() {
 
@@ -130,46 +127,11 @@ class Memory {
 
 		// "YOU WON !";
 	}
-	test() {
-
-		console.log("TEST :)");
-	}
 }
 
 const memory = new Memory();
 
 memory.init();
-
-
-
-memory.test();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
